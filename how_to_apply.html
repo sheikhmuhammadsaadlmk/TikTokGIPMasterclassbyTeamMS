@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>How To Apply</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Plyr CSS -->
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css"/>
+
+  <style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+  -webkit-tap-highlight-color:transparent;
+}
+
+body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow-x:hidden;
+  padding:clamp(10px,2vw,25px);
+  background:#050505;
+  position:relative;
+}
+
+/* Background Glow */
+
+body::before{
+  content:'';
+  position:fixed;
+  width:min(55vw,500px);
+  height:min(55vw,500px);
+  background:#ff005030;
+  filter:blur(120px);
+  top:-20%;
+  left:-10%;
+  z-index:0;
+  pointer-events:none;
+}
+
+body::after{
+  content:'';
+  position:fixed;
+  width:min(55vw,500px);
+  height:min(55vw,500px);
+  background:#00f2ea25;
+  filter:blur(120px);
+  bottom:-20%;
+  right:-10%;
+  z-index:0;
+  pointer-events:none;
+}
+
+/* Main Container */
+
+.video-container{
+  width:100%;
+  max-width:900px;
+  position:relative;
+  z-index:2;
+
+  border-radius:clamp(18px,2vw,35px);
+
+  overflow:hidden;
+
+  background:rgba(255,255,255,0.04);
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter:blur(20px);
+
+  -webkit-backdrop-filter:blur(20px);
+
+  box-shadow:
+  0 0 50px rgba(0,0,0,0.45),
+  inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.video-container::before{
+  content:'';
+  position:absolute;
+  inset:-2px;
+
+  background:linear-gradient(
+  90deg,
+  #ff0050,
+  #00f2ea,
+  #ff0050
+  );
+
+  z-index:-1;
+
+  filter:blur(25px);
+
+  opacity:.45;
+}
+
+/* Top Bar */
+
+.top-bar{
+
+  width:100%;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:15px;
+
+  padding:
+  clamp(16px,2vw,24px)
+  clamp(18px,2.5vw,32px);
+
+  background:rgba(0,0,0,0.45);
+
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.top-bar h1{
+
+  color:#fff;
+
+  font-size:
+  clamp(16px,2vw,26px);
+
+  font-weight:700;
+
+  letter-spacing:.3px;
+}
+
+.dots{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-shrink:0;
+}
+
+.dots span{
+  width:clamp(10px,1vw,14px);
+  height:clamp(10px,1vw,14px);
+  border-radius:50%;
+}
+
+.dots span:nth-child(1){
+  background:#ff3b30;
+}
+
+.dots span:nth-child(2){
+  background:#ffcc00;
+}
+
+.dots span:nth-child(3){
+  background:#34c759;
+}
+
+/* Video */
+
+.video-wrapper{
+  width:100%;
+  max-width:700px;
+  margin:auto;
+  position:relative;
+  background:black;
+  aspect-ratio:1/1;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+#player{
+  width:100%;
+  height:100%;
+}
+
+.plyr{
+  width:100%;
+  height:100%;
+}
+
+.plyr--video{
+  background:black;
+}
+
+.plyr__control{
+  border-radius:12px !important;
+}
+
+/* Mobile Optimizations */
+
+@media (max-width:768px){
+
+  body{
+    align-items:flex-start;
+    padding:14px;
+  }
+
+  .video-container{
+    border-radius:22px;
+  }
+
+  .top-bar{
+    padding:16px 18px;
+  }
+
+  .video-wrapper{
+    max-width:100%;
+    border-radius:16px;
+  }
+
+}
+
+@media (max-width:480px){
+
+  body{
+    padding:10px;
+  }
+
+  .video-container{
+    border-radius:18px;
+  }
+
+  .top-bar{
+    padding:14px 15px;
+  }
+
+  .dots{
+    gap:6px;
+  }
+
+  .video-wrapper{
+    border-radius:14px;
+  }
+
+}
+
+/* Ultra Small Devices */
+
+@media (max-width:340px){
+
+  .top-bar h1{
+    font-size:14px;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+  <div class="video-container">
+
+    <!-- Top -->
+
+    <div class="top-bar">
+
+      <h1>How To Apply</h1>
+
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+    </div>
+
+    <!-- Video -->
+
+    <div class="video-wrapper">
+
+      <div
+        id="player"
+        data-plyr-provider="vimeo"
+        data-plyr-embed-id="1192807258">
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Plyr JS -->
+
+  <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+
+  <script>
+
+    const player = new Plyr('#player', {
+
+      controls: [
+        'play-large',
+        'play',
+        'progress',
+        'current-time',
+        'mute',
+        'volume',
+        'fullscreen'
+      ],
+
+      settings: [],
+
+      disableContextMenu: true
+
+    });
+
+    // Disable Right Click
+
+    document.addEventListener('contextmenu', e => {
+      e.preventDefault();
+    });
+
+    // Disable Inspect Shortcuts
+
+    document.onkeydown = function(e){
+
+      if(e.keyCode == 123){
+        return false;
+      }
+
+      if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){
+        return false;
+      }
+
+      if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
+        return false;
+      }
+
+      if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){
+        return false;
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>
